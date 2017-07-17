@@ -36,10 +36,12 @@ install:
   - travis_install_nightly
   - pip install humanize git+https://github.com/litnimax/PyAjam.git requests
   - pip install gevent git+https://github.com/digium/swagger-py.git ari odoorpc py-Asterisk requests setproctitle
-
-before_script:
   - python ${HOME}/../services/stasis_app.py
   - python ${HOME}/../services/ami_broker.py
+
+# before_script:
+#   - python ${HOME}/../services/stasis_app.py
+#   - python ${HOME}/../services/ami_broker.py
 
 script:
   - travis_run_tests
