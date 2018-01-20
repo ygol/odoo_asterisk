@@ -23,7 +23,7 @@ env:
   - TRAVIS_BUILD_DIR="/home/odoo/build/ygol/odoo_asterisk/odoo-addons"
 
   matrix:
-  - LINT_CHECK="1"
+ # - LINT_CHECK="1"
   - TESTS="1" ODOO_REPO="odoo/odoo"
   - TESTS="1" ODOO_REPO="OCA/OCB"
 
