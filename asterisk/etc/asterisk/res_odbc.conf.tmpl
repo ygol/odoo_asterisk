@@ -1,9 +1,6 @@
-[ENV]
-
 [odoo]
-enabled=>yes
-dsn=>PostgreSQL-odoo
-pooling=>no
-pre-connect=>yes
-username=>odoo
-password=>odoo
+enabled => yes
+dsn => PostgreSQL-odoo
+username => {{ default .Env.DB_USER "odoo" }}
+password => {{ default .Env.DB_PASSWORD "odoo" }}
+pre-connect => yes

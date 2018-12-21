@@ -1,0 +1,33 @@
+[general]
+
+[default]
+
+;[clean-recording]
+;exten => s,1,System(sleep 5 &amp;&amp; rm "/var/spool/asterisk/monitor/${UNIQUEID}.wav")
+
+[macro-monitor]
+exten => s,1,MixMonitor(${UNIQUEID}.wav)
+;same => n,Set(CHANNEL(hangup_handler_push)=clean-recording,s,1(${UNIQUEID}))
+same => n,Set(AUDIOHOOK_INHERIT(MixMonitor)=yes)
+
+[stasis-error]
+; Here we come on stasis errors
+exten => stasis-error,1,Answer
+exten => stasis-error,n,Playback(error-has-occured)
+exten => stasis-error,n,Hangup
+
+
+[users]
+include => stasis-error
+exten => 100,1,Wait(1)
+exten => 100,n,Ringing
+exten => 100,n,Answer
+exten => 100,n,Wait(1)
+exten => 100,n,Stasis(odoo,set_callerid)
+exten => 100,n,Macro(monitor)
+exten => 100,n,Dial(SIP/test2)
+exten => 100,n,Playback(demo-thanks)
+exten => 100,n,Hangup
+
+
+#tryinclude extensions_custom.conf

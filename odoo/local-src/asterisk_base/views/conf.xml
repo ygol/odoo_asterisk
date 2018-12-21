@@ -15,7 +15,7 @@
       <field name="model">asterisk.conf</field>
       <field name="arch" type="xml">
           <tree>
-              <field name="filename"/>
+              <field name="name"/>
               <field name="server"/>
           </tree>
       </field>
@@ -27,13 +27,13 @@
       <field name="arch" type="xml">
           <form>
             <header>
-                <button name="sync_conf" type="object" icon="fa-paper-plane"
-                    string="Sync File" class="oe_highlight oe_read_only"/>
+                <button name="upload_conf" type="object" icon="fa-upload"
+                    string="Upload File" class="oe_highlight oe_read_only"/>
             </header>
               <sheet>
                 <div name="title" class="oe_title">
-                    <label for="filename" class="oe_edit_only"/>
-                    <h1><field name="filename"/> @ <field name="server" options="{'no_create': '1'}"/></h1>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1><field name="name"/> @ <field name="server" options="{'no_create': '1'}"/></h1>
                 </div>
                 <notebook>
                   <page string="Content">
@@ -64,7 +64,7 @@
     <field name="model">asterisk.conf</field>
     <field name="arch" type="xml">
       <search>
-        <field name="filename"/>
+        <field name="name"/>
         <field name="server"/>
         <filter string="Server" context="{'group_by': 'server'}"/>
       </search>

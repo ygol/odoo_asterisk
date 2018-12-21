@@ -1,0 +1,10 @@
+# Migration tools
+marabunta==0.7.3
+anthem==0.10.0
+
+# test / lint
+flake8
+pytest
+pytest-odoo
+pytest-cov
+watchdog

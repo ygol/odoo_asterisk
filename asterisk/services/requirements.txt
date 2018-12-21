@@ -1,0 +1,10 @@
+git+https://github.com/digium/swagger-py.git
+ari
+odoorpc
+pyst2
+terminado
+
+# Next dependencies are installed with aline's apk but left here for reference
+# gevent
+# requests
+# setproctitle
